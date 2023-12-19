@@ -6,6 +6,12 @@ include {quality_control} from './workflows/quality_control_wf' params(params)
 include {normalise} from './workflows/normalisation_wf' params(params)
 include {normalise as normalise_multi} from './workflows/normalisation_multi_wf' params(params)
 
+// check_params()
+
+def check_params() { 
+	params.each{ k, v -> println "params.${k.padRight(25)} = ${v}" } 
+exit 0  }  
+
 workflow pop_assign_only {
     
     pop_assign()
